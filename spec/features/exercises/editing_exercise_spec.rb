@@ -22,7 +22,7 @@ RSpec.feature "Listing Exercises" do
         fill_in "Duration", with: 45
         click_button "Update Exercise"
 
-        expect(page).to have_content("exercise has been updated")
+        expect(page).to have_content("Exercise has been updated")
         expect(page).to have_content(45)   
         expect(page).not_to have_content(48)
     end
