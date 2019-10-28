@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.feature "Hide Sign in and Sign up" do
     before do
-        @user = User.create(email: "jack@example.com", password: "password")
+        @user = User.create(email: "jack@example.com", password: "password", first_name: "John", 
+                            last_name: "Doe")
         login_as(@user)
     end
 
