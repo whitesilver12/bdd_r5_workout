@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'jquery-ui-rails', '5.0.5'
 gem 'd3-rails', '4.1.0'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
