@@ -7,14 +7,18 @@
 <div class="row">
     <div class="col-md-10">
         <h2>List of Members</h2>
-        <%= will_paginate @atheletes, renderer: BootstrapPagination::Rails, class: "pull-left paginate" %>
+        <%= will_paginate @athletes, renderer: BootstrapPagination::Rails, class: "pull-left paginate" %>
     </div>
 </div>
 
 <div class="row">
-    <% @atheletes.each do |athelete| %>
+    <% @athletes.each do |athlete| %>
         <div class="col-md-10 well member">
-            <%= athelete.full_name %>
+            <%= athlete.full_name %>
+            <% if current_user %>
+                <%= link_to "Follow", friendships_path(friend_id: athlete.id),
+                    method: :post, class: "btn btn-success pull-right" unless current_user.follows_or_some?(athlete) %>
+            <% end %>
         </div>
     <% end %>
 </div>

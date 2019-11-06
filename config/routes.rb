@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       post :search, do: 'dashboards#search'
     end
   end
+
+  resources :friendships, only: [:show, :create, :destroy]
 end

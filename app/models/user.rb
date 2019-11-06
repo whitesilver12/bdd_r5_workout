@@ -4,7 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :exercises       
+  has_many :exercises   
+  has_many :friendships 
+  has_many :friends, through: :friendships, class_name: "User"   
+
+  
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -27,5 +31,9 @@ class User < ApplicationRecord
         "%#{names_array[1]}%", "%#{names_array[0]}%",
         "%#{names_array[1]}%").order(:first_name)
     end
+  end
+
+  def follows_or_some?(new_friend)
+    friendships.map(&:friend).include?(new_friend) || self == new_friend
   end
 end
